@@ -3,11 +3,8 @@
     "builds": [
       {
         "src": "pro1/wsgi.py",
-        "use": "@vercel/python"
-      },
-      {
-        "src": "manage.py",
-        "use": "@vercel/python"
+        "use": "@vercel/python",
+        "config":{"maxLambdaSize": "15mb" , "runtime":"python3.9"}
       }
     ],
     "routes": [
@@ -15,10 +12,6 @@
         "src": "/(.*)",
         "dest": "pro1/wsgi.py"
       }
-    ],
-    "env": {
-      "DJANGO_SETTINGS_MODULE": "pro1.settings",
-      "PYTHONUNBUFFERED": "1"
-    }
+    ]
   }
   
